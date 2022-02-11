@@ -1,8 +1,7 @@
-import pygame
 from game import Game
 
-jogo = Game()
+g = Game()
 
-while jogo.running:
-    jogo.playing = True
-    jogo.gameloop()
+while g.running:
+    g.curr_menu.display_menu()
+    g.game_loop()
