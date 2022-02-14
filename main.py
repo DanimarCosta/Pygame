@@ -1,14 +1,19 @@
 import pygame, sys
 from button import Button
+import tkinter as tk
+
+# Pega as dimenções da tela
+janela_tk = tk.Tk()
+largura_janela, altura_janela = (janela_tk.winfo_screenwidth()), (janela_tk.winfo_screenheight())
 
 pygame.init()
 
-SCREEN = pygame.display.set_mode((1280, 720))
+SCREEN = pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
 pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("background.jpg")
 
-def get_font(size): # Returns Press-Start-2P in the desired size
+def get_font(size): 
     return pygame.font.Font("assets/8-BIT WONDER.TTF", size)
 
 def play():
@@ -17,7 +22,7 @@ def play():
 
         SCREEN.fill("black")
 
-        PLAY_TEXT = get_font(45).render("This is the PLAY screen.", True, "White")
+        PLAY_TEXT = get_font(45).render("janela do Jogo.", True, "White")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 260))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
@@ -43,7 +48,7 @@ def options():
 
         SCREEN.fill("white")
 
-        OPTIONS_TEXT = get_font(45).render("This is the OPTIONS screen.", True, "Black")
+        OPTIONS_TEXT = get_font(45).render("Janela de configs do Jogo.", True, "Black")
         OPTIONS_RECT = OPTIONS_TEXT.get_rect(center=(640, 260))
         SCREEN.blit(OPTIONS_TEXT, OPTIONS_RECT)
 
