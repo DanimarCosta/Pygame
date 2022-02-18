@@ -6,16 +6,20 @@ import tkinter as tk
 janela_tk = tk.Tk()
 largura_janela, altura_janela = (janela_tk.winfo_screenwidth()), (janela_tk.winfo_screenheight())
 
+# Inicia a instancia do pygame
 pygame.init()
+pygame.mixer.init()
 
+# Configurações iniciais da tela
 SCREEN = pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
 pygame.display.set_caption("Menu")
-
 BG = pygame.image.load("background.jpg")
 
+# Cria uma função para passar a fonte
 def get_font(size): 
     return pygame.font.Font("assets/8-BIT WONDER.TTF", size)
 
+# Função que carrega as informações do jogo
 def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
@@ -41,7 +45,8 @@ def play():
                     main_menu()
 
         pygame.display.update()
-    
+
+# Carrega a pagina de configurações do jogo e salva em um json
 def options():
     while True:
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
@@ -58,6 +63,7 @@ def options():
         OPTIONS_BACK.changeColor(OPTIONS_MOUSE_POS)
         OPTIONS_BACK.update(SCREEN)
 
+        # Sai do sistema caso o botão equivalente ao esc é precionados
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -68,7 +74,10 @@ def options():
 
         pygame.display.update()
 
+# Cria um menu para controlar o programa
 def main_menu():
+    pygame.mixer.music.load("assets/lofi.mp3")
+    pygame.mixer.music.play(-1)
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -105,4 +114,5 @@ def main_menu():
 
         pygame.display.update()
 
+# inicia o programa incials
 main_menu()
