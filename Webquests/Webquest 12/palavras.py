@@ -1,0 +1,15 @@
+lista_palavras = [
+    'casa',
+    'telefone',
+    'pedra',
+    'ornitorrinco',
+    'navio',
+    'janela',
+    'pneumoultramicroscopicossilicovulcanoconiotico',
+    'zebra',
+    'livro',
+    'computador',
+    'mochila',
+    'amor',
+    'amizade',
+    'lareira']
